@@ -6,35 +6,82 @@
   justify-content: space-between;
   align-items: center;
   padding: 6rem;
-  min-height: 100vh;
 }
 
-.description {
-  display: inherit;
-  justify-content: inherit;
-  align-items: inherit;
-  font-size: 0.85rem;
-  max-width: 1100px;
-  width: 100%;
-  z-index: 2;
-  font-family: Arial, Helvetica, sans-serif;
+// STEPS
+.stepsBox {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 28rem;
+}
 
-  a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
+.stepContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stepImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  image {
+    height: 9rem;
+    width: auto;
+  }
+}
+
+.stepText {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 16rem;
+
+  span {
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    color: $color-primary;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    font-size: 2rem;
   }
 
   p {
-    position: relative;
-    margin: 0;
-    padding: 1rem;
-    background-color: $color-primary;
-    border: 1px solid rgba(28, 27, 27, 0.3);
-    border-radius: 12px;
+    font-size: 1.25rem;
   }
 }
+
+// .description {
+//   display: inherit;
+//   justify-content: inherit;
+//   align-items: inherit;
+//   font-size: 0.85rem;
+//   max-width: 1100px;
+//   width: 100%;
+//   z-index: 2;
+//   font-family: Arial, Helvetica, sans-serif;
+
+//   a {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     gap: 0.5rem;
+//   }
+
+//   p {
+//     position: relative;
+//     margin: 0;
+//     padding: 1rem;
+//     background-color: $color-primary;
+//     border: 1px solid rgba(28, 27, 27, 0.3);
+//     border-radius: 12px;
+//   }
+// }
 
 /* .code {
   font-weight: 700;
