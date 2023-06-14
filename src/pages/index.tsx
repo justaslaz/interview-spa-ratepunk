@@ -15,87 +15,101 @@ export default function Home() {
       </Head>
       <Navbar />
       <main className={`${styles.main} ${textFont.className}`}>
-        {/* Refer Form */}
-        <div>
-          <h2>Refer Friends and Get Rewards</h2>
-          <p>
-            Refer your friends to us and earn hotel booking vouchers. We&apos;ll
-            give you 1 coin for each friend that installs our extension. Minimum
-            cash-out at 20 coins.
-          </p>
+        <div className={styles.content}>
+          {/* Refer Form */}
+          <div className={styles.referBox}>
+            <h2 className={titleFont.className}>
+              Refer Friends and Get Rewards
+            </h2>
+            <p>
+              Refer your friends to us and earn hotel booking vouchers.
+              We&apos;ll give you 1 coin for each friend that installs our
+              extension. Minimum cash-out at 20 coins.
+            </p>
 
-          <div>
-            <input />
-            <button>Get Referral Link</button>
+            <div className={styles.referForm}>
+              <div className={styles.inputContainer}>
+                <Image
+                  className={styles.image}
+                  src="/assets/email.svg"
+                  alt="email"
+                  height={22}
+                  width={18.343}
+                />
+                <input
+                  className={textFont.className}
+                  placeholder="Enter your email address"
+                />
+              </div>
+              <button type="submit">Get Referral Link</button>
+            </div>
+
+            <span>Limits on max rewards apply.</span>
           </div>
 
-          <span>Limits on max rewards apply.</span>
+          {/* Steps */}
+          <div className={styles.stepsBox}>
+            {/* Step 1 */}
+            <div className={styles.stepContainer}>
+              <figure className={styles.stepImage}>
+                <Image
+                  className={styles.image}
+                  src="/assets/invite.svg"
+                  alt="invite"
+                  width={144}
+                  height={144}
+                />
+              </figure>
+              <div className={styles.stepText}>
+                <span>Step 1</span>
+                <h3 className={titleFont.className}>Invite Friends</h3>
+                <p>Refer friends with your unique referral link.</p>
+              </div>
+            </div>
+            {/* Step 2 */}
+            <div className={styles.stepContainer}>
+              <div className={styles.stepText}>
+                <span>Step 2</span>
+                <h3 className={titleFont.className}>Collect Coins</h3>
+                <p>
+                  Get 1 coin for each friend that installs our extension using
+                  your referral link.
+                </p>
+              </div>
+              <figure className={styles.stepImage}>
+                <Image
+                  src="/assets/collect-coins.svg"
+                  alt="collect coins"
+                  width={144}
+                  height={144}
+                />
+              </figure>
+            </div>
+            {/* Step 3 */}
+            <div className={styles.stepContainer}>
+              <figure className={styles.stepImage}>
+                <Image
+                  src="/assets/voucher.svg"
+                  alt="voucher"
+                  width={144}
+                  height={144}
+                />
+              </figure>
+              <div className={styles.stepText}>
+                <span>Step 3</span>
+                <h3 className={titleFont.className}>Get Voucher</h3>
+                <p>
+                  Redeem for a $20 hotel booking voucher once you collect 20
+                  coins.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Steps */}
-        <div className={styles.stepsBox}>
-          {/* Step 1 */}
-          <div className={styles.stepContainer}>
-            <figure className={styles.stepImage}>
-              <Image
-                src="/assets/invite.svg"
-                alt="invite"
-                width={144}
-                height={144}
-              />
-            </figure>
-            <div className={styles.stepText}>
-              <span>Step 1</span>
-              <h3 className={titleFont.className}>Invite Friends</h3>
-              <p>Refer friends with your unique referral link.</p>
-            </div>
-          </div>
-          {/* Step 2 */}
-          <div className={styles.stepContainer}>
-            <div className={styles.stepText}>
-              <span>Step 2</span>
-              <h3 className={titleFont.className}>Collect Coins</h3>
-              <p>
-                Get 1 coin for each friend that installs our extension using
-                your referral link.
-              </p>
-            </div>
-            <figure className={styles.stepImage}>
-              <Image
-                src="/assets/collect-coins.svg"
-                alt="collect coins"
-                width={144}
-                height={144}
-              />
-            </figure>
-          </div>
-          {/* Step 3 */}
-          <div className={styles.stepContainer}>
-            <figure className={styles.stepImage}>
-              <Image
-                src="/assets/voucher.svg"
-                alt="voucher"
-                width={144}
-                height={144}
-              />
-            </figure>
-            <div className={styles.stepText}>
-              <span>Step 3</span>
-              <h3 className={titleFont.className}>Get Voucher</h3>
-              <p>
-                Redeem for a $20 hotel booking voucher once you collect 20
-                coins.
-              </p>
-            </div>
-          </div>
-        </div>
+        <aside className={`${styles.aside} ${textFont.className}`}></aside>
 
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.tsx</code>
-          </p>
-          <div>
+        {/* 
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
               target="_blank"
@@ -111,78 +125,7 @@ export default function Home() {
                 priority
               />
             </a>
-          </div>
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
+         */}
       </main>
     </>
   );
