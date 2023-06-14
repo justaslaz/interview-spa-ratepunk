@@ -1,3 +1,5 @@
+@import '@/styles/var';
+
 .main {
   display: flex;
   flex-direction: column;
@@ -16,76 +18,76 @@
   width: 100%;
   z-index: 2;
   font-family: Arial, Helvetica, sans-serif;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  p {
+    position: relative;
+    margin: 0;
+    padding: 1rem;
+    background-color: $color-primary;
+    border: 1px solid rgba(28, 27, 27, 0.3);
+    border-radius: 12px;
+  }
 }
 
-.description a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.description p {
-  position: relative;
-  margin: 0;
-  padding: 1rem;
-  background-color: gray;
-  border: 1px solid rgba(28, 27, 27, 0.3);
-  border-radius: 12px;
-}
-
-.code {
+/* .code {
   font-weight: 700;
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
-.grid {
+/* .grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(25%, auto));
   width: 1100px;
   max-width: 100%;
-}
+} */
 
-.card {
+/* .card {
   padding: 1rem 1.2rem;
   border-radius: 12px;
   background: gray;
   border: 1px solid black;
   transition: background 200ms, border 200ms;
-}
+} */
 
-.card span {
+/* .card span {
   display: inline-block;
   transition: transform 200ms;
-}
+} */
 
-.card h2 {
+/* .card h2 {
   font-weight: 600;
   margin-bottom: 0.7rem;
-}
+} */
 
-.card p {
+/* .card p {
   margin: 0;
   opacity: 0.6;
   font-size: 0.9rem;
   line-height: 1.5;
   max-width: 30ch;
-}
+} */
 
-.center {
+/* .center {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   padding: 4rem 0;
-}
+} */
 
-.logo {
+/* .logo {
   position: relative;
-}
+} */
 
 /* Mobile */
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
   .content {
     padding: 4rem;
   }
@@ -151,10 +153,10 @@
     background: white;
     z-index: 1;
   }
-}
+} */
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 701px) and (max-width: 1120px) {
+/* @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
     grid-template-columns: repeat(2, 50%);
   }
@@ -167,4 +169,4 @@
   to {
     transform: rotate(0deg);
   }
-}
+} */
