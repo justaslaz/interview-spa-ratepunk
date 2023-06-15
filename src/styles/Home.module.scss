@@ -2,6 +2,7 @@
 
 .main {
   background-color: $color-background-yellow;
+  border-bottom: 1px solid $color-gray;
 }
 
 .content {
@@ -160,6 +161,78 @@
 
 .aside {
   background-color: $color-background-gray;
+  border-bottom: 1px solid $color-gray;
+}
+
+.content2 {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 1.25rem;
+  max-width: 70rem;
+  height: 9rem;
+}
+
+.btnContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.storeBtn {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border: 1px solid $color-gray;
+  border-radius: 1rem;
+  background-color: $color-background-gray;
+  padding-left: 1.5rem;
+  height: 5rem;
+  width: 19.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($color: $color-background-gray, $amount: 10%);
+  }
+}
+
+.logo {
+  width: 3.5rem;
+  height: auto;
+}
+
+.btnTextContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: baseline;
+  color: white;
+  font-size: 1rem;
+  line-height: 1rem;
+
+  span:nth-child(2) {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+}
+
+.reviewContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  span {
+    color: white;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+}
+
+.starsContainer {
+  display: flex;
+  gap: 0.25rem;
 }
 
 // .description {

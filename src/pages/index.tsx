@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { textFont, titleFont } from '@/utils/fonts';
+import { textFont, titleFont, gadugiFont } from '@/utils/fonts';
 import styles from '@/styles/Home.module.scss';
 import Navbar from '@/components/Navbar';
+import StarIcon from 'remixicon-react/StarFillIcon';
 
 export default function Home() {
   return (
@@ -108,23 +109,54 @@ export default function Home() {
         </div>
 
         <aside className={styles.aside}>
-          <div>
-            <button>
-              <figure>
-                <Image
-                  className={styles.logo}
-                  src="/assets/chrome.svg"
-                  alt="Chrome Store"
-                  height={42}
-                  width={42}
-                />
-              </figure>
+          <div className={styles.content2}>
+            <div className={styles.btnContainer}>
+              {/* Chrome Store */}
+              <button className={styles.storeBtn}>
+                <figure>
+                  <Image
+                    className={styles.logo}
+                    src="/assets/chrome.svg"
+                    alt="Chrome Store"
+                    height={42}
+                    width={42}
+                  />
+                </figure>
 
-              <div>
-                <span>available in the</span>
-                <span>chrome web store</span>
+                <div className={styles.btnTextContainer}>
+                  <span className={textFont.className}>available in the</span>
+                  <span className={gadugiFont.className}>chrome web store</span>
+                </div>
+              </button>
+              {/* Apple Store */}
+              <button className={styles.storeBtn}>
+                <figure>
+                  <Image
+                    className={styles.logo}
+                    src="/assets/apple.svg"
+                    alt="Apple Store"
+                    height={42}
+                    width={42}
+                  />
+                </figure>
+
+                <div className={styles.btnTextContainer}>
+                  <span className={textFont.className}>available in the</span>
+                  <span className={gadugiFont.className}>apple app store</span>
+                </div>
+              </button>
+            </div>
+
+            <div className={styles.reviewContainer}>
+              <div className={styles.starsContainer}>
+                <StarIcon color="white" size="1.25rem" />
+                <StarIcon color="white" size="1.25rem" />
+                <StarIcon color="white" size="1.25rem" />
+                <StarIcon color="white" size="1.25rem" />
+                <StarIcon color="white" size="1.25rem" />
               </div>
-            </button>
+              <span>Chrome Store reviews</span>
+            </div>
           </div>
         </aside>
 
