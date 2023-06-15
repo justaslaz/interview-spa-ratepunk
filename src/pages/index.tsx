@@ -1,9 +1,9 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import { textFont, titleFont, gadugiFont } from '@/utils/fonts';
 import styles from '@/styles/Home.module.scss';
 import Navbar from '@/components/Navbar';
-import StarIcon from 'remixicon-react/StarFillIcon';
+import ReferSteps from '@/components/ReferSteps';
+import Stores from '@/components/Stores';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -15,169 +15,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main className={styles.main}>
-        <div className={styles.content}>
-          {/* Refer Form */}
-          <div className={styles.referBox}>
-            <h2 className={titleFont.className}>
-              Refer Friends and Get Rewards
-            </h2>
-            <p>
-              Refer your friends to us and earn hotel booking vouchers.
-              We&apos;ll give you 1 coin for each friend that installs our
-              extension. Minimum cash-out at 20 coins.
-            </p>
-
-            <div className={styles.referForm}>
-              <div className={styles.inputContainer}>
-                <Image
-                  className={styles.image}
-                  src="/assets/email.svg"
-                  alt="email"
-                  height={22}
-                  width={18.343}
-                />
-                <input
-                  className={textFont.className}
-                  placeholder="Enter your email address"
-                />
-              </div>
-              <button type="submit">Get Referral Link</button>
-            </div>
-
-            <span>Limits on max rewards apply.</span>
-          </div>
-
-          {/* Steps */}
-          <div className={styles.stepsBox}>
-            {/* Step 1 */}
-            <div className={styles.stepContainer}>
-              <figure className={styles.stepImage}>
-                <Image
-                  className={styles.image}
-                  src="/assets/invite.svg"
-                  alt="invite"
-                  width={144}
-                  height={144}
-                />
-              </figure>
-              <div className={styles.stepText}>
-                <span>Step 1</span>
-                <h3 className={titleFont.className}>Invite Friends</h3>
-                <p>Refer friends with your unique referral link.</p>
-              </div>
-            </div>
-            {/* Step 2 */}
-            <div className={styles.stepContainer}>
-              <div className={styles.stepText}>
-                <span>Step 2</span>
-                <h3 className={titleFont.className}>Collect Coins</h3>
-                <p>
-                  Get 1 coin for each friend that installs our extension using
-                  your referral link.
-                </p>
-              </div>
-              <figure className={styles.stepImage}>
-                <Image
-                  src="/assets/collect-coins.svg"
-                  alt="collect coins"
-                  width={144}
-                  height={144}
-                />
-              </figure>
-            </div>
-            {/* Step 3 */}
-            <div className={styles.stepContainer}>
-              <figure className={styles.stepImage}>
-                <Image
-                  src="/assets/voucher.svg"
-                  alt="voucher"
-                  width={144}
-                  height={144}
-                />
-              </figure>
-              <div className={styles.stepText}>
-                <span>Step 3</span>
-                <h3 className={titleFont.className}>Get Voucher</h3>
-                <p>
-                  Redeem for a $20 hotel booking voucher once you collect 20
-                  coins.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <aside className={styles.aside}>
-          <div className={styles.content2}>
-            <div className={styles.btnContainer}>
-              {/* Chrome Store */}
-              <button className={styles.storeBtn}>
-                <figure>
-                  <Image
-                    className={styles.logo}
-                    src="/assets/chrome.svg"
-                    alt="Chrome Store"
-                    height={42}
-                    width={42}
-                  />
-                </figure>
-
-                <div className={styles.btnTextContainer}>
-                  <span className={textFont.className}>available in the</span>
-                  <span className={gadugiFont.className}>chrome web store</span>
-                </div>
-              </button>
-              {/* Apple Store */}
-              <button className={styles.storeBtn}>
-                <figure>
-                  <Image
-                    className={styles.logo}
-                    src="/assets/apple.svg"
-                    alt="Apple Store"
-                    height={42}
-                    width={42}
-                  />
-                </figure>
-
-                <div className={styles.btnTextContainer}>
-                  <span className={textFont.className}>available in the</span>
-                  <span className={gadugiFont.className}>apple app store</span>
-                </div>
-              </button>
-            </div>
-
-            <div className={styles.reviewContainer}>
-              <div className={styles.starsContainer}>
-                <StarIcon color="white" size="1.25rem" />
-                <StarIcon color="white" size="1.25rem" />
-                <StarIcon color="white" size="1.25rem" />
-                <StarIcon color="white" size="1.25rem" />
-                <StarIcon color="white" size="1.25rem" />
-              </div>
-              <span>Chrome Store reviews</span>
-            </div>
-          </div>
-        </aside>
-
-        {/* 
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-         */}
-      </main>
+      <ReferSteps />
+      <Stores />
+      <Footer />
     </>
   );
 }
