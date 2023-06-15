@@ -1,11 +1,10 @@
 import styles from '@/styles/Navbar.module.scss';
-import { textFont } from '@/utils/fonts';
 import Link from 'next/link';
 import LinkLogo from './common/LinkLogo';
 
 export default function Navbar() {
   return (
-    <header className={`${styles.header} ${textFont.className}`}>
+    <header className={styles.header}>
       <nav className={styles.nav}>
         <LinkLogo />
 
