@@ -8,13 +8,25 @@
 .content {
   display: grid;
   grid-template-columns: 3fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 4rem;
+  grid-template-rows: 2fr 1fr 1fr;
+  gap: 2rem;
   margin-left: auto;
   margin-right: auto;
   padding: 4rem 1.25rem;
   max-width: 70rem;
   line-height: 1.5rem;
+
+  @include lg {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 4rem;
+    padding: 3rem 2rem;
+  }
+
+  @include xs {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .title {
@@ -31,9 +43,12 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin-right: 4rem;
 
-  span {
-    color: $color-gray-light;
+  @include lg {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    margin-right: 0;
   }
 }
 
@@ -53,6 +68,18 @@
       }
     }
   }
+
+  @include lg {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+
+.contact {
+  @include lg {
+    grid-column: 2;
+    grid-row: 2;
+  }
 }
 
 .contactEmail {
@@ -64,6 +91,20 @@
 .emailIcon {
   width: 1rem;
   height: auto;
+}
+
+.social {
+  grid-row: 2 / -1;
+  align-self: flex-end;
+
+  @include lg {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  @include xs {
+    align-self: flex-start;
+  }
 }
 
 .logosContainer {
@@ -83,5 +124,21 @@
 
   &:hover {
     background-color: darken($color: $color-primary, $amount: 10%);
+  }
+}
+
+.copyright {
+  grid-column: 1;
+  grid-row: 3;
+  align-self: flex-end;
+  color: $color-gray-light;
+
+  @include lg {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  @include xs {
+    align-self: flex-start;
   }
 }

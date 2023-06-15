@@ -16,9 +16,6 @@ export default function Footer() {
             top booking sites and runs a price comparison, so you can be
             confident in knowing you&rsquo;re getting the best deal!
           </p>
-          <span>
-            &copy; {new Date().getFullYear()} Ratepunk. All Rights Reserved.
-          </span>
         </div>
 
         {/* Quick Links */}
@@ -121,6 +118,11 @@ export default function Footer() {
             </a>
           </div>
         </div>
+
+        {/* Copyright */}
+        <span className={styles.copyright}>
+          &copy; {new Date().getFullYear()} Ratepunk. All Rights Reserved.
+        </span>
       </div>
     </footer>
   );
