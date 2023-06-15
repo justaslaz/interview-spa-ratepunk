@@ -14,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main className={`${styles.main} ${textFont.className}`}>
+      <main className={styles.main}>
         <div className={styles.content}>
           {/* Refer Form */}
           <div className={styles.referBox}>
@@ -107,7 +107,26 @@ export default function Home() {
           </div>
         </div>
 
-        <aside className={`${styles.aside} ${textFont.className}`}></aside>
+        <aside className={styles.aside}>
+          <div>
+            <button>
+              <figure>
+                <Image
+                  className={styles.logo}
+                  src="/assets/chrome.svg"
+                  alt="Chrome Store"
+                  height={42}
+                  width={42}
+                />
+              </figure>
+
+              <div>
+                <span>available in the</span>
+                <span>chrome web store</span>
+              </div>
+            </button>
+          </div>
+        </aside>
 
         {/* 
             <a
