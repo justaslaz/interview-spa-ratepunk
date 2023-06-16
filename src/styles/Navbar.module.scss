@@ -13,6 +13,10 @@
   margin-left: auto;
   margin-right: auto;
   padding: 1.25rem;
+
+  @include sm {
+    padding: 0.75rem 1rem;
+  }
 }
 
 .links {
@@ -20,8 +24,43 @@
   align-items: center;
   justify-content: space-between;
   gap: 4rem;
+  list-style: none;
 
-  a:hover {
+  @include sm {
+    display: none;
+  }
+
+  li:hover {
     color: $color-primary;
   }
+}
+
+// Mobile Menu Button
+
+.mobileBtnBox {
+  display: none;
+
+  @include sm {
+    display: flex;
+  }
+}
+
+.mobileBtn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  margin: -0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.menuIcon {
+  height: 1rem;
+  width: auto;
+}
+
+.srOnly {
+  @include sr-only;
 }
