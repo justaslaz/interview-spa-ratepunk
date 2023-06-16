@@ -9,7 +9,9 @@ export default function Footer() {
       <div className={styles.content}>
         {/* About */}
         <div className={styles.about}>
-          <LinkLogo />
+          <figure>
+            <LinkLogo />
+          </figure>
           <p>
             Ratepunk compares hotel room prices across the major online travel
             agencies. When you search for a room, Ratepunk extension scans the
