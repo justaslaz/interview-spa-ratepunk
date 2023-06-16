@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { z } from 'zod';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
 
 const schema = z.object({
   email: z
@@ -15,6 +16,8 @@ const schema = z.object({
 type Schema = z.infer<typeof schema>;
 
 export default function ReferSteps() {
+  const [isSuccess, setIsSuccess] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -25,7 +28,7 @@ export default function ReferSteps() {
   });
 
   const onSubmit: SubmitHandler<Schema> = (data) => {
-    console.log(data);
+    setIsSuccess(true);
   };
 
   return (
@@ -41,6 +44,22 @@ export default function ReferSteps() {
           </p>
 
           <form onSubmit={handleSubmit(onSubmit)} className={styles.referForm}>
+            {/* Success message */}
+            {isSubmitSuccessful && isSuccess && (
+              <div className={styles.successBox}>
+                <figure>
+                  <Image
+                    className={styles.successIcon}
+                    src="/assets/success.svg"
+                    alt="success"
+                    width={32}
+                    height={32}
+                  />
+                </figure>
+                <span>Your email is confirmed!</span>
+              </div>
+            )}
+            {/* Input Email */}
             <div className={styles.inputContainer}>
               <p className={styles.errorMsg}>{errors.email?.message}</p>
               <Image
@@ -60,7 +79,9 @@ export default function ReferSteps() {
             <button type="submit">Get Referral Link</button>
           </form>
 
-          <span>Limits on max rewards apply.</span>
+          <span className={styles.disclaimer}>
+            Limits on max rewards apply.
+          </span>
         </div>
 
         {/* Steps */}

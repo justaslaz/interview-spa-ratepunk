@@ -67,7 +67,7 @@
     }
   }
 
-  span {
+  .disclaimer {
     color: $color-gray-light;
     margin-top: auto;
 
@@ -113,6 +113,28 @@
     line-height: 1.25rem;
     color: #ed6f82;
   }
+}
+
+.successBox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  span {
+    font-weight: 700;
+    color: $color-gray;
+  }
+}
+
+.successIcon {
+  width: 2rem;
+  height: auto;
 }
 
 .inputContainer {
