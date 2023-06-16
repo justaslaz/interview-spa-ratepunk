@@ -1,8 +1,33 @@
 import styles from '@/styles/ReferSteps.module.scss';
 import { textFont, titleFont } from '@/utils/fonts';
 import Image from 'next/image';
+import { z } from 'zod';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+const schema = z.object({
+  email: z
+    .string()
+    .min(1, { message: 'Email must not be empty' })
+    .email({ message: 'Please provide valid email address' }),
+});
+
+type Schema = z.infer<typeof schema>;
 
 export default function ReferSteps() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+  } = useForm<Schema>({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit: SubmitHandler<Schema> = (data) => {
+    console.log(data);
+  };
+
   return (
     <main className={styles.main}>
       <div className={styles.content}>
@@ -15,8 +40,9 @@ export default function ReferSteps() {
             cash-out at 20 coins.
           </p>
 
-          <div className={styles.referForm}>
+          <form onSubmit={handleSubmit(onSubmit)} className={styles.referForm}>
             <div className={styles.inputContainer}>
+              <p className={styles.errorMsg}>{errors.email?.message}</p>
               <Image
                 className={styles.image}
                 src="/assets/email.svg"
@@ -25,12 +51,14 @@ export default function ReferSteps() {
                 width={18.343}
               />
               <input
-                className={textFont.className}
+                type="text"
                 placeholder="Enter your email address"
+                className={textFont.className}
+                {...register('email')}
               />
             </div>
             <button type="submit">Get Referral Link</button>
-          </div>
+          </form>
 
           <span>Limits on max rewards apply.</span>
         </div>

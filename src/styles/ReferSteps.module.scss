@@ -104,6 +104,15 @@
       background-color: darken($color: $color-primary, $amount: 10%);
     }
   }
+
+  .errorMsg {
+    position: absolute;
+    top: -2rem;
+    left: 0px;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    color: #ed6f82;
+  }
 }
 
 .inputContainer {
@@ -116,6 +125,7 @@
   background-color: white;
   height: 4rem;
   width: 100%;
+  position: relative;
 
   @include xs {
     height: 3.5rem;
