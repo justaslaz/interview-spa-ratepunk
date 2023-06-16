@@ -60,3 +60,65 @@ $breakpoints: (
   white-space: nowrap;
   border-width: 0;
 }
+
+// Common
+@mixin button {
+  height: 4rem;
+  width: 100%;
+  background-color: $color-primary;
+  border: 1px solid $color-gray;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 2rem;
+  cursor: pointer;
+
+  @include xs {
+    height: 3.5rem;
+    font-size: 1rem;
+  }
+
+  &:hover {
+    background-color: darken($color: $color-primary, $amount: 10%);
+  }
+}
+
+@mixin inputBox {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-left: 1.25rem;
+  border: 1px solid $color-gray;
+  border-radius: 0.5rem;
+  background-color: white;
+  height: 4rem;
+  width: 100%;
+  position: relative;
+
+  @include xs {
+    height: 3.5rem;
+  }
+
+  input {
+    height: 100%;
+    width: 100%;
+    border-width: 0px;
+    background-color: transparent;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    color: $color-gray;
+
+    @include xs {
+      font-size: 1rem;
+    }
+
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: $color-gray-light;
+    }
+  }
+}

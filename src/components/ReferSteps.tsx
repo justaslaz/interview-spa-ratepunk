@@ -6,6 +6,8 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 
+const mockupRefLink = 'https://ratepunk.com/referral';
+
 const schema = z.object({
   email: z
     .string()
@@ -59,24 +61,51 @@ export default function ReferSteps() {
                 <span>Your email is confirmed!</span>
               </div>
             )}
-            {/* Input Email */}
-            <div className={styles.inputContainer}>
-              <p className={styles.errorMsg}>{errors.email?.message}</p>
-              <Image
-                className={styles.image}
-                src="/assets/email.svg"
-                alt="email"
-                height={22}
-                width={18.343}
-              />
-              <input
-                type="text"
-                placeholder="Enter your email address"
-                className={textFont.className}
-                {...register('email')}
-              />
-            </div>
-            <button type="submit">Get Referral Link</button>
+
+            {!isSuccess && (
+              <>
+                {/* Input Email */}
+                <div className={styles.emailInput}>
+                  <p className={styles.errorMsg}>{errors.email?.message}</p>
+                  <Image
+                    className={styles.image}
+                    src="/assets/email.svg"
+                    alt="email"
+                    height={22}
+                    width={18.343}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Enter your email address"
+                    className={textFont.className}
+                    {...register('email')}
+                  />
+                </div>
+                {/* Submit Button */}
+                <button className={styles.refBtn} type="submit">
+                  Get Referral Link
+                </button>
+              </>
+            )}
+
+            {isSuccess && (
+              <div className={styles.copyContainer}>
+                <div className={styles.copyInput}>
+                  <input
+                    type="text"
+                    value={mockupRefLink}
+                    className={textFont.className}
+                  />
+                </div>
+                <button
+                  className={styles.copyBtn}
+                  type="button"
+                  onClick={() => navigator.clipboard.writeText(mockupRefLink)}
+                >
+                  Copy URL
+                </button>
+              </div>
+            )}
           </form>
 
           <span className={styles.disclaimer}>
