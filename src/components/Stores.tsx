@@ -7,9 +7,13 @@ export default function Stores() {
   return (
     <aside className={styles.aside}>
       <div className={styles.content}>
-        <div className={styles.btnContainer}>
+        <div className={styles.linksContainer}>
           {/* Chrome Store */}
-          <button className={styles.storeBtn}>
+          <a
+            href="https://chrome.google.com/webstore/detail/ratepunk-same-hotel-way-c/gdaioanblcnghddimngklkhgcbomfdck?utm_source=ratepunk"
+            target="_blank"
+            className={styles.storeLink}
+          >
             <figure>
               <Image
                 className={styles.logo}
@@ -20,13 +24,17 @@ export default function Stores() {
               />
             </figure>
 
-            <div className={styles.btnTextContainer}>
+            <div className={styles.textContainer}>
               <span className={textFont.className}>available in the</span>
               <span className={gadugiFont.className}>chrome web store</span>
             </div>
-          </button>
+          </a>
           {/* Apple Store */}
-          <button className={styles.storeBtn}>
+          <a
+            href="https://apps.apple.com/app/ratepunk/id1607823726"
+            target="_blank"
+            className={styles.storeLink}
+          >
             <figure>
               <Image
                 className={styles.logo}
@@ -37,11 +45,11 @@ export default function Stores() {
               />
             </figure>
 
-            <div className={styles.btnTextContainer}>
+            <div className={styles.textContainer}>
               <span className={textFont.className}>available in the</span>
               <span className={gadugiFont.className}>apple app store</span>
             </div>
-          </button>
+          </a>
         </div>
 
         {/* Review */}
