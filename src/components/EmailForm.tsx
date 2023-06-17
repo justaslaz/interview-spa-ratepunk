@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { textFont } from '@/utils/fonts';
 import styles from '@/styles/EmailForm.module.scss';
 import { useDebounce } from '@/hooks/useDebounce';
+import LoaderIcon from 'remixicon-react/Loader4LineIcon';
 
 const mockupRefLink = 'https://ratepunk.com/referral';
 
@@ -21,6 +22,38 @@ type Schema = z.infer<typeof schema>;
 export default function EmailForm() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [refBtnText, setRefBtnText] = useState('Copy');
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+  } = useForm<Schema>({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit: SubmitHandler<Schema> = async (data) => {
+    try {
+      const res = await fetch(
+        'https://api.jsonbin.io/v3/b/648de26e9d312622a3711aac',
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Master-Key':
+              '$2b$10$01XlhxOWss.8Epc/Yphl5u2lwtmuK212GRAvIqMrcVzooi8MJqfUC',
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      const json = await res.json();
+
+      setIsSuccess(true);
+      console.log('Last Entered:', json.record);
+    } catch (err) {
+      setIsSuccess(false);
+      console.error(err);
+    }
+  };
 
   // Ref Button Text
   const btnTextHandler = () => {
@@ -38,19 +71,6 @@ export default function EmailForm() {
     window.addEventListener('resize', debouncedBtnTextHandler);
     return () => window.removeEventListener('resize', debouncedBtnTextHandler);
   }, [debouncedBtnTextHandler]);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitSuccessful },
-  } = useForm<Schema>({
-    resolver: zodResolver(schema),
-  });
-
-  const onSubmit: SubmitHandler<Schema> = (data) => {
-    console.log('entered email:', data.email);
-    setIsSuccess(true);
-  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.referForm}>
@@ -91,7 +111,11 @@ export default function EmailForm() {
           </div>
           {/* Submit Button */}
           <button className={styles.refBtn} type="submit">
-            Get Referral Link
+            {isSubmitting ? (
+              <LoaderIcon className={styles.loaderIcon} />
+            ) : (
+              'Get Referral Link'
+            )}
           </button>
         </>
       )}

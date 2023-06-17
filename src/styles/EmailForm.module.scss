@@ -59,6 +59,18 @@
   @include button;
 }
 
+.loaderIcon {
+  height: 2rem;
+  width: auto;
+  animation: spin 1s linear infinite;
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
 .copyContainer {
   display: flex;
 
