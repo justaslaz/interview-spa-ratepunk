@@ -1,0 +1,150 @@
+@import '@/styles/var';
+
+.footer {
+  background-color: $color-background-gray-light;
+  border-bottom: 1px solid $color-gray;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
+  gap: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4rem 1.25rem;
+  max-width: 70rem;
+  line-height: 1.5rem;
+
+  @include lg {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 4rem;
+    padding: 3rem 2rem;
+  }
+
+  @include xs {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.about {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-right: 4rem;
+
+  @include lg {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    margin-right: 0;
+  }
+
+  @include xs {
+    margin-bottom: 2rem;
+  }
+}
+
+.quick {
+  grid-column: 2;
+  grid-row: 1 / -1;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+
+    li {
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  @include lg {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+
+.contact {
+  @include lg {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+.contactEmail {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.emailIcon {
+  width: 1rem;
+  height: auto;
+}
+
+.social {
+  grid-row: 2 / -1;
+  align-self: flex-end;
+
+  @include lg {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  @include xs {
+    align-self: flex-start;
+    margin-bottom: 2rem;
+  }
+}
+
+.logosContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.logoBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: 2rem;
+  background-color: $color-primary;
+  border: 1px solid $color-gray;
+  border-radius: 0.5rem;
+
+  &:hover {
+    background-color: darken($color: $color-primary, $amount: 10%);
+  }
+}
+
+.copyright {
+  grid-column: 1;
+  grid-row: 3;
+  align-self: flex-end;
+  color: $color-gray-light;
+
+  @include lg {
+    grid-column: 1 / -1;
+  }
+
+  @include xs {
+    align-self: flex-start;
+  }
+}

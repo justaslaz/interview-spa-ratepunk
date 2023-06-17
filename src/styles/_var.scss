@@ -1,0 +1,124 @@
+// Colors
+$color-primary: #4eb3e3;
+
+$color-gray: #1f343e;
+$color-gray-light: #6d7a80;
+
+$color-background-yellow: #f8cc5d;
+$color-background-gray: #45565e;
+$color-background-gray-light: #f8f4f9;
+
+// Breakpoints
+$breakpoints: (
+  'xs': 480px,
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+);
+
+@mixin xs {
+  @media (max-width: map-get($breakpoints, 'xs')) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (max-width: map-get($breakpoints, 'sm')) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: map-get($breakpoints, 'md')) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (max-width: map-get($breakpoints, 'lg')) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (max-width: map-get($breakpoints, 'xl')) {
+    @content;
+  }
+}
+@mixin breakpoint($bp: 0) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}
+
+// Helpers
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Common
+@mixin button {
+  height: 4rem;
+  width: 100%;
+  background-color: $color-primary;
+  border: 1px solid $color-gray;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 2rem;
+  cursor: pointer;
+
+  @include xs {
+    height: 3.5rem;
+    font-size: 1rem;
+  }
+
+  &:hover {
+    background-color: darken($color: $color-primary, $amount: 10%);
+  }
+}
+
+@mixin inputBox {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-left: 1.25rem;
+  border: 1px solid $color-gray;
+  border-radius: 0.5rem;
+  background-color: white;
+  height: 4rem;
+  width: 100%;
+  position: relative;
+
+  @include xs {
+    height: 3.5rem;
+  }
+
+  input {
+    height: 100%;
+    width: 100%;
+    border-width: 0px;
+    background-color: transparent;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    color: $color-gray;
+
+    @include xs {
+      font-size: 1rem;
+    }
+
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: $color-gray-light;
+    }
+  }
+}

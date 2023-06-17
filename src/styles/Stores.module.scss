@@ -1,0 +1,90 @@
+@import '@/styles/var';
+
+.aside {
+  background-color: $color-background-gray;
+  border-bottom: 1px solid $color-gray;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 1.25rem;
+  max-width: 70rem;
+  height: 9rem;
+
+  @include lg {
+    flex-direction: column;
+    height: fit-content;
+  }
+}
+
+.linksContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @include sm {
+    flex-direction: column;
+  }
+}
+
+.storeLink {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border: 1px solid $color-gray;
+  border-radius: 1rem;
+  background-color: $color-background-gray;
+  padding-left: 1.5rem;
+  height: 5rem;
+  width: 18.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($color: $color-background-gray, $amount: 10%);
+  }
+}
+
+.logo {
+  width: 3.5rem;
+  height: auto;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: baseline;
+  color: white;
+  font-size: 1rem;
+  line-height: 1rem;
+
+  span:nth-child(2) {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+}
+
+.reviewContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  span {
+    color: white;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+
+    @include sm {
+      font-size: 1rem;
+    }
+  }
+}
+
+.starsContainer {
+  display: flex;
+  gap: 0.25rem;
+}

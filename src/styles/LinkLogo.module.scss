@@ -1,0 +1,16 @@
+@import '@/styles/var';
+
+.srOnly {
+  @include sr-only;
+}
+
+.logoBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  height: 2rem;
+  width: auto;
+}
