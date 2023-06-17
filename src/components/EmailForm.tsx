@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { textFont } from '@/utils/fonts';
 import styles from '@/styles/EmailForm.module.scss';
+import { useDebounce } from '@/hooks/useDebounce';
 
 const mockupRefLink = 'https://ratepunk.com/referral';
 
@@ -19,6 +20,24 @@ type Schema = z.infer<typeof schema>;
 
 export default function EmailForm() {
   const [isSuccess, setIsSuccess] = useState(false);
+  const [refBtnText, setRefBtnText] = useState('Copy');
+
+  // Ref Button Text
+  const btnTextHandler = () => {
+    if (window.innerWidth <= 480) {
+      setRefBtnText('Copy URL');
+    }
+    if (window.innerWidth > 480) {
+      setRefBtnText('Copy');
+    }
+  };
+  const debouncedBtnTextHandler = useDebounce(btnTextHandler, 300, 'trailing');
+
+  useEffect(() => {
+    btnTextHandler();
+    window.addEventListener('resize', debouncedBtnTextHandler);
+    return () => window.removeEventListener('resize', debouncedBtnTextHandler);
+  }, [debouncedBtnTextHandler]);
 
   const {
     register,
@@ -92,7 +111,7 @@ export default function EmailForm() {
             type="button"
             onClick={() => navigator.clipboard.writeText(mockupRefLink)}
           >
-            Copy URL
+            {refBtnText}
           </button>
         </div>
       )}
