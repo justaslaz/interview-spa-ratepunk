@@ -1,0 +1,94 @@
+@import '@/styles/var';
+
+.referForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.successBox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  span {
+    font-weight: 700;
+    color: $color-gray;
+  }
+}
+
+.successIcon {
+  width: 2rem;
+  height: auto;
+
+  @include xs {
+    width: 1.5rem;
+    height: auto;
+  }
+}
+
+.emailInput {
+  @include inputBox;
+
+  .image {
+    width: 1.25rem;
+    height: auto;
+
+    @include xs {
+      width: 1rem;
+    }
+  }
+}
+
+.errorMsg {
+  position: absolute;
+  top: -2rem;
+  left: 0px;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  color: #ed6f82;
+}
+
+.refBtn {
+  @include button;
+}
+
+.copyContainer {
+  display: flex;
+
+  @include xs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.copyInput {
+  @include inputBox;
+
+  @media (min-width: 480px) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+  }
+
+  input {
+    color: $color-gray-light;
+  }
+}
+
+.copyBtn {
+  @include button;
+
+  @media (min-width: 480px) {
+    width: 6rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}

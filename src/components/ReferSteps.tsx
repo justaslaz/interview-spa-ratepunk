@@ -1,112 +1,22 @@
-import styles from '@/styles/ReferSteps.module.scss';
-import { textFont, titleFont } from '@/utils/fonts';
 import Image from 'next/image';
-import { z } from 'zod';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useState } from 'react';
-
-const mockupRefLink = 'https://ratepunk.com/referral';
-
-const schema = z.object({
-  email: z
-    .string()
-    .min(1, { message: 'Email must not be empty' })
-    .email({ message: 'Please provide valid email address' }),
-});
-
-type Schema = z.infer<typeof schema>;
+import { titleFont } from '@/utils/fonts';
+import styles from '@/styles/ReferSteps.module.scss';
+import EmailForm from './EmailForm';
 
 export default function ReferSteps() {
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
-  } = useForm<Schema>({
-    resolver: zodResolver(schema),
-  });
-
-  const onSubmit: SubmitHandler<Schema> = (data) => {
-    setIsSuccess(true);
-  };
-
   return (
     <main className={styles.main}>
       <div className={styles.content}>
         {/* Refer Form */}
         <div className={styles.referBox}>
           <h2 className={titleFont.className}>Refer Friends and Get Rewards</h2>
-          <p>
+          <p className={styles.referText}>
             Refer your friends to us and earn hotel booking vouchers. We&apos;ll
             give you 1 coin for each friend that installs our extension. Minimum
             cash-out at 20 coins.
           </p>
 
-          <form onSubmit={handleSubmit(onSubmit)} className={styles.referForm}>
-            {/* Success message */}
-            {isSubmitSuccessful && isSuccess && (
-              <div className={styles.successBox}>
-                <figure>
-                  <Image
-                    className={styles.successIcon}
-                    src="/assets/success.svg"
-                    alt="success"
-                    width={32}
-                    height={32}
-                  />
-                </figure>
-                <span>Your email is confirmed!</span>
-              </div>
-            )}
-
-            {!isSuccess && (
-              <>
-                {/* Input Email */}
-                <div className={styles.emailInput}>
-                  <p className={styles.errorMsg}>{errors.email?.message}</p>
-                  <Image
-                    className={styles.image}
-                    src="/assets/email.svg"
-                    alt="email"
-                    height={22}
-                    width={18.343}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Enter your email address"
-                    className={textFont.className}
-                    {...register('email')}
-                  />
-                </div>
-                {/* Submit Button */}
-                <button className={styles.refBtn} type="submit">
-                  Get Referral Link
-                </button>
-              </>
-            )}
-
-            {isSuccess && (
-              <div className={styles.copyContainer}>
-                <div className={styles.copyInput}>
-                  <input
-                    type="text"
-                    value={mockupRefLink}
-                    className={textFont.className}
-                  />
-                </div>
-                <button
-                  className={styles.copyBtn}
-                  type="button"
-                  onClick={() => navigator.clipboard.writeText(mockupRefLink)}
-                >
-                  Copy URL
-                </button>
-              </div>
-            )}
-          </form>
+          <EmailForm />
 
           <span className={styles.disclaimer}>
             Limits on max rewards apply.
