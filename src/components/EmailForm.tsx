@@ -33,22 +33,19 @@ export default function EmailForm() {
 
   const onSubmit: SubmitHandler<Schema> = async (data) => {
     try {
-      const res = await fetch(
-        'https://api.jsonbin.io/v3/b/648de26e9d312622a3711aac',
-        {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Master-Key':
-              '$2b$10$01XlhxOWss.8Epc/Yphl5u2lwtmuK212GRAvIqMrcVzooi8MJqfUC',
-          },
-          body: JSON.stringify(data),
-        }
-      );
-      const json = await res.json();
+      const response = await fetch('/api/hello', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) throw new Error('Request failed');
+
+      const json = await response.json();
 
       setIsSuccess(true);
-      console.log('Last Entered:', json.record);
+      console.log('Last Entered:', json.record.email);
     } catch (err) {
       setIsSuccess(false);
       console.error(err);
