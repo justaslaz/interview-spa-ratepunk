@@ -32,8 +32,8 @@ export default function ReferSteps() {
                 className={styles.image}
                 src="/assets/invite.svg"
                 alt="invite"
-                width={144}
-                height={144}
+                height={72.29}
+                width={69.5}
               />
             </figure>
             <div className={styles.stepText}>
@@ -54,10 +54,11 @@ export default function ReferSteps() {
             </div>
             <figure className={styles.stepImage}>
               <Image
+                className={styles.image}
                 src="/assets/collect-coins.svg"
                 alt="collect coins"
-                width={144}
-                height={144}
+                height={60.99}
+                width={59.25}
               />
             </figure>
           </div>
@@ -65,10 +66,11 @@ export default function ReferSteps() {
           <div className={styles.stepContainer}>
             <figure className={styles.stepImage}>
               <Image
+                className={styles.image}
                 src="/assets/voucher.svg"
                 alt="voucher"
-                width={144}
-                height={144}
+                height={105.54}
+                width={97.58}
               />
             </figure>
             <div className={styles.stepText}>

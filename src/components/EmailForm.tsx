@@ -8,7 +8,7 @@ import styles from '@/styles/EmailForm.module.scss';
 import { useDebounce } from '@/hooks/useDebounce';
 import LoaderIcon from 'remixicon-react/Loader4LineIcon';
 
-const mockupRefLink = 'https://ratepunk.com/referral';
+const mockupRefLink = 'https://company.com/referral';
 
 const schema = z.object({
   email: z
