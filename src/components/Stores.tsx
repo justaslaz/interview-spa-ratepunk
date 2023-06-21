@@ -10,7 +10,7 @@ export default function Stores() {
         <div className={styles.linksContainer}>
           {/* Chrome Store */}
           <a
-            href="https://chrome.google.com/webstore/detail/ratepunk-same-hotel-way-c/gdaioanblcnghddimngklkhgcbomfdck?utm_source=ratepunk"
+            href="https://chrome.google.com/webstore/category/extensions"
             target="_blank"
             className={styles.storeLink}
           >
@@ -31,7 +31,7 @@ export default function Stores() {
           </a>
           {/* Apple Store */}
           <a
-            href="https://apps.apple.com/app/ratepunk/id1607823726"
+            href="https://www.apple.com/app-store/"
             target="_blank"
             className={styles.storeLink}
           >

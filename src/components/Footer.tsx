@@ -13,10 +13,10 @@ export default function Footer() {
             <LinkLogo />
           </figure>
           <p>
-            Ratepunk compares hotel room prices across the major online travel
-            agencies. When you search for a room, Ratepunk extension scans the
-            top booking sites and runs a price comparison, so you can be
-            confident in knowing you&rsquo;re getting the best deal!
+            We compare hotel room prices across the major online travel
+            agencies. When you search for a room, our extension scans the top
+            booking sites and runs a price comparison, so you can be confident
+            in knowing you&rsquo;re getting the best deal!
           </p>
         </div>
 
@@ -34,7 +34,7 @@ export default function Footer() {
               <Link href="/">How It Works</Link>
             </li>
             <li>
-              <Link href="/">Ratepunk Blog</Link>
+              <Link href="/">Company Blog</Link>
             </li>
             <li>
               <Link href="/">Privacy Policy</Link>
@@ -53,8 +53,8 @@ export default function Footer() {
               width={17.393}
               height={13.8}
             />
-            <a href="mailto:hi@ratepunk.com" target="_blank">
-              hi@ratepunk.com
+            <a href="mailto:hello@company.com" target="_blank">
+              hello@company.com
             </a>
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function Footer() {
                 <Image
                   src="/assets/instagram.svg"
                   alt="Instagram Logo"
-                  width={16.004}
+                  width={16}
                   height={16}
                 />
               </figure>
@@ -80,7 +80,7 @@ export default function Footer() {
                 <Image
                   src="/assets/facebook.svg"
                   alt="Facebook Logo"
-                  width={8.569}
+                  width={16}
                   height={16}
                 />
               </figure>
@@ -103,7 +103,7 @@ export default function Footer() {
                   src="/assets/twitter.svg"
                   alt="Twitter Logo"
                   width={16}
-                  height={12.995}
+                  height={16}
                 />
               </figure>
             </a>
@@ -113,7 +113,7 @@ export default function Footer() {
                 <Image
                   src="/assets/tiktok.svg"
                   alt="TikTok Logo"
-                  width={13.9}
+                  width={16}
                   height={16}
                 />
               </figure>
@@ -123,7 +123,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <span className={styles.copyright}>
-          &copy; {new Date().getFullYear()} Ratepunk. All Rights Reserved.
+          &copy; {new Date().getFullYear()} Company. All Rights Reserved.
         </span>
       </div>
     </footer>
